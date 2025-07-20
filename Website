@@ -21,7 +21,7 @@
     }
 
     .typing {
-      font-family: 'Arial'
+      font-family: 'Arial';
       font-size: 3rem;
       font-weight: bold;
       color: #fa578d;
