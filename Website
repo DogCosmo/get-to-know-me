@@ -21,7 +21,7 @@
     }
 
     .typing {
-      font-family: 'Caveat', cursive;
+      font-family: 'Arial';
       font-size: 3rem;
       color: #fa578d;
       white-space: nowrap;
