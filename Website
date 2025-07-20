@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get to Know Me!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Caveat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Caveat&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Nunito', sans-serif;
@@ -20,15 +20,46 @@
       background: #fce1e9;
     }
 
-    h1 {
-      font-family: 'Arial';
+    .typing {
+      font-family: 'Caveat', cursive;
       font-size: 3rem;
       color: #fa578d;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #fa578d;
+      display: inline-block;
+      /* width set by JS */
+      margin: auto;
+      letter-spacing: 2px;
     }
 
     .tagline {
       font-size: 1.2rem;
       color: #ec407a;
+      margin-top: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      background: #ffd5ec;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-weight: bold;
+      color: #d63384;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #ffafd2;
+      transform: scale(1.05);
     }
 
     .section {
@@ -37,7 +68,7 @@
       background: white;
       border-radius: 20px;
       padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     }
 
     h2 {
@@ -52,16 +83,43 @@
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Hi, I'm Aanya</h1>
-    <p class="tagline">Programmer ✧ Dog Lover ✧ Swimmer ✧ Dreamer </p>
+    <div class="typing" id="typing"></div>
+    <p class="tagline">Programmer ✧ Dog Lover ✧ Swimmer ✧ Dreamer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#favorites">Favorites</a>
+    </nav>
   </header>
 
-  <section class="section">
+  <section class="section" id="about">
     <h2>About</h2>
     <p>Put stuff here</p>
   </section>
 
+  <script>
+    const text = "Hi, I'm Aanya";
+    const typingElement = document.getElementById("typing");
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typingElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 150);
+      } else {
+        typingElement.style.borderRight = "3px solid transparent";
+        setInterval(() => {
+          if (typingElement.style.borderRight === "3px solid transparent") {
+            typingElement.style.borderRight = "3px solid #fa578d";
+          } else {
+            typingElement.style.borderRight = "3px solid transparent";
+          }
+        }, 600);
+      }
+    }
+
+    type();
+  </script>
 </body>
 </html>
