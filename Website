@@ -21,14 +21,14 @@
     }
 
     .typing {
-      font-family: 'Arial';
+      font-family: 'Arial'
       font-size: 3rem;
+      font-weight: bold;
       color: #fa578d;
       white-space: nowrap;
       overflow: hidden;
       border-right: 3px solid #fa578d;
       display: inline-block;
-      /* width set by JS */
       margin: auto;
       letter-spacing: 2px;
     }
