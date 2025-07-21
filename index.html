@@ -121,5 +121,35 @@
 
     type();
   </script>
+
+<script>
+  const sparkles = [];
+  const colors = ["#ff69b4", "#ffd700", "#ffb6c1", "#e0b0ff", "#fffacd"];
+
+  document.addEventListener("mousemove", (e) => {
+    const sparkle = document.createElement("div");
+    sparkle.style.position = "absolute";
+    sparkle.style.width = "6px";
+    sparkle.style.height = "6px";
+    sparkle.style.borderRadius = "50%";
+    sparkle.style.pointerEvents = "none";
+    sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    sparkle.style.left = `${e.pageX}px`;
+    sparkle.style.top = `${e.pageY}px`;
+    sparkle.style.opacity = 1;
+    sparkle.style.transition = "transform 0.6s ease, opacity 0.6s ease";
+    document.body.appendChild(sparkle);
+    sparkles.push(sparkle);
+
+    requestAnimationFrame(() => {
+      sparkle.style.transform = `translateY(-10px) scale(1.4)`;
+      sparkle.style.opacity = 0;
+    });
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 600);
+  });
+</script>
 </body>
 </html>
