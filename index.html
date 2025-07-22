@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
       color: #444;
+      overflow-x: hidden;
     }
 
     header {
@@ -83,21 +84,17 @@
 
     .heart {
       position: fixed;
-      top: -10px;
-      color: #ff6fa7;
-      font-size: 20px;
-      animation: fall linear infinite;
+      top: -30px;
+      font-size: 1.5rem;
+      color: #ff5ca2;
+      animation: fall 6s linear forwards;
       pointer-events: none;
       z-index: 9999;
     }
 
     @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
+      to {
+        transform: translateY(100vh);
         opacity: 0;
       }
     }
@@ -115,7 +112,7 @@
 
   <section class="section" id="about">
     <h2>About</h2>
-    <p>Hi! I'm Aanya, a student in the USA. I am an avid programmer, and this is just one of my fun personal projects! Apart from coding, I love spending time in the pool doing competitive swimming - although sometimes that can get tiring. I love animals, and have one pet dog who has been with me for 2 years now! Also, if you couldn't tell from this website already, I LOVE pink and gradient backgrounds. Pink is my favorite color (see some of my other favorite things in the favorites section) and color gradients as backgrounds just look so pleasing to me. I've included a gradient as the background of almost all of my personal projects so far just because of how aesthetic they look! The background of this specific website uses a sunset themed gradient with pink and orange blending together!</p>
+    <p>Hi! I'm Aanya, a student in the USA. I am an avid programmer, and this is just one of my fun personal projects! Apart from coding, I love spending time in the pool doing competitive swimming - although sometimes that can get tiring. I love animals, and have one pet dog who has been with me for 2 years now! Also, if you couldn't tell from this website already, I LOVE pink and gradient backgrounds. Pink is my favorite color (see some of my other favorite things in the favorites section) and color gradients as backgrounds just look so pleasing to me. I've included a gradient as the background of almost all of my personal projects so far just because of how aesthetic they look! The background of this specific website uses a sunset themed gradient with pink and orange blending together! </p>
   </section>
 
   <script>
@@ -131,10 +128,9 @@
       } else {
         typingElement.style.borderRight = "3px solid transparent";
         setInterval(() => {
-          typingElement.style.borderRight =
-            typingElement.style.borderRight === "3px solid transparent"
-              ? "3px solid #fa578d"
-              : "3px solid transparent";
+          typingElement.style.borderRight = typingElement.style.borderRight === "3px solid transparent"
+            ? "3px solid #fa578d"
+            : "3px solid transparent";
         }, 600);
       }
     }
@@ -175,16 +171,16 @@
   <script>
     function createHeart() {
       const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.textContent = "❤";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 2 + Math.random() * 3 + "s";
-      heart.style.fontSize = (12 + Math.random() * 20) + "px";
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.innerHTML = "❤";
       document.body.appendChild(heart);
+
       setTimeout(() => {
         heart.remove();
-      }, 5000);
+      }, 6000);
     }
+
     setInterval(createHeart, 300);
   </script>
 </body>
