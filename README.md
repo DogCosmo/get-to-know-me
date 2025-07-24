@@ -1,2 +1,2 @@
 # get-to-know-me
-a simple but cute website for you to get to know who i am!
+Get to Know Me is a website that tells you all about me, Aanya! It includes an about section where I listed some information about me and a favorites section where I list some of my favorite things. To navigate to the different sections, either scroll through the website normally or you can click on the buttons at the top. Some fun things I included in my website is falling hearts in the background and a sparkles cursor! Try out the cursor for yourself, just drag your mouse around and you'll notice that there are little sparklers moving with your mouse. I hope this website was helpful and got you guys to know me better! 
