@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get to Know Me!</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Caveat&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
@@ -105,6 +106,16 @@
         opacity: 0;
       }
     }
+
+    .language-icon {
+      margin-right: 10px;
+      transition: filter 0.3s ease;
+    }
+
+    .language-icon:hover {
+      filter: drop-shadow(0 0 6px #00ffff);
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -114,6 +125,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#favorites">Favorites</a>
+      <a href="#languages">Languages</a>
     </nav>
   </header>
 
@@ -132,6 +144,19 @@
        ♡ Ice Cream Flavor: Chocolate<br>
        ♡ Subject: Computer Science and Biology<br>
        ♡ Code Editor: VS</p>
+  </section>
+
+  <section class="section" id="languages">
+    <h2>Programming Languages</h2>
+    <p>Here are all the languages I’ve learned (and am learning):</p>
+    <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1.2rem;">
+      <li><i class="fab fa-html5 language-icon" style="color:#ff6f00;"></i> HTML</li>
+      <li><i class="fab fa-css3-alt language-icon" style="color:#2196f3;"></i> CSS</li>
+      <li><i class="fab fa-python language-icon" style="color:#3776ab;"></i> Python</li>
+      <li><i class="fab fa-js-square language-icon" style="color:#f7df1e;"></i> JavaScript</li>
+      <li><i class="fas fa-gamepad language-icon" style="color:#9933ff;"></i> Lua</li>
+      <li><i class="fab fa-java language-icon" style="color:#f89820;"></i> Learning Java</li>
+    </ul>
   </section>
 
   <script>
