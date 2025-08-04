@@ -4,163 +4,612 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Get to Know Me!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Caveat&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: url('https://static.vecteezy.com/system/resources/thumbnails/019/851/039/small/neon-cityscape-cyber-smart-city-flat-design-illustration-copy-free-vector.jpg') no-repeat center center fixed;
-      background-size: cover;
-      margin: 0;
-      padding: 0;
-      color: #f2f2f2;
-      overflow-x: hidden;
+    :root {
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --primary-dark: #4f46e5;
+      --secondary: #ec4899;
+      --accent: #f59e0b;
+      --dark: #0f172a;
+      --darker: #020617;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --success: #10b981;
+      
+      --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-light));
+      --gradient-accent: linear-gradient(135deg, var(--secondary), var(--accent));
+      
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+      --shadow-primary: 0 0 15px rgba(99, 102, 241, 0.5);
+      --shadow-accent: 0 0 15px rgba(236, 72, 153, 0.5);
+      
+      --rounded-sm: 0.25rem;
+      --rounded: 0.5rem;
+      --rounded-md: 0.75rem;
+      --rounded-lg: 1rem;
+      --rounded-xl: 1.25rem;
+      --rounded-full: 9999px;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--darker);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header Styles */
     header {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.6);
       position: relative;
-      z-index: 2;
+      padding: 3rem 0 4rem;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.7));
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-accent);
+      z-index: 20;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 15;
     }
 
     .typing {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem;
-      font-weight: bold;
-      color: #00f7ff;
-      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #00bfff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       display: inline-block;
-      margin: auto;
-      letter-spacing: 2px;
-    }
-
-    .tagline {
-      font-size: 1.2rem;
-      color: #00ffff;
-      margin-top: 1rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      background: #111;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      font-weight: bold;
-      color: #00ffff;
-      box-shadow: 0 0 8px #00ffff88;
-      transition: 0.3s ease;
-    }
-
-    nav a:hover {
-      background: #222;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #00ffff;
-    }
-
-    .section {
-      max-width: 700px;
-      margin: 2rem auto;
-      background: rgba(0, 0, 0, 0.75);
-      border-radius: 20px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2);
+      margin-bottom: 1rem;
       position: relative;
-      z-index: 1;
     }
 
-    h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
-      color: #00f7ff;
-      text-shadow: 0 0 10px #00bfff;
+    .typing::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: var(--rounded-full);
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: typingLine 1.5s infinite alternate;
     }
 
-    p {
-      line-height: 1.6;
-    }
-
-    .heart {
-      position: fixed;
-      top: -30px;
-      color: #ff69b4;
-      font-size: 20px;
-      animation: fall 4s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(360deg);
+    @keyframes typingLine {
+      0% {
+        transform: scaleX(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scaleX(1);
         opacity: 0;
       }
     }
 
-    .language-icon {
-      margin-right: 10px;
-      transition: filter 0.3s ease;
+    .tagline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--gray);
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .language-icon:hover {
-      filter: drop-shadow(0 0 6px #00ffff);
-      cursor: pointer;
+    .tagline span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tagline i {
+      color: var(--accent);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      background: rgba(15, 23, 42, 0.7);
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--rounded-full);
+      font-weight: 500;
+      color: var(--light);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav a:hover {
+      background: rgba(99, 102, 241, 0.2);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-primary);
+      color: var(--primary-light);
+    }
+
+    nav a i {
+      font-size: 0.9rem;
+    }
+
+    /* Section Styles */
+    .section {
+      position: relative;
+      margin: 3rem auto;
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: var(--rounded-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      max-width: 800px;
+      overflow: hidden;
+      transition: var(--transition-slow);
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-primary);
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 1.5rem;
+      color: var(--light);
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: var(--rounded-full);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--gray);
+    }
+
+    /* About Section */
+    #about {
+      background: linear-gradient(to bottom right, rgba(15, 23, 42, 0.8), rgba(2, 6, 23, 0.7));
+    }
+
+    /* Favorites Section */
+    #favorites {
+      background: linear-gradient(to bottom left, rgba(15, 23, 42, 0.8), rgba(2, 6, 23, 0.7));
+    }
+
+    .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .favorite-item {
+      background: rgba(2, 6, 23, 0.5);
+      padding: 1.25rem;
+      border-radius: var(--rounded-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .favorite-item:hover {
+      background: rgba(99, 102, 241, 0.1);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-primary);
+    }
+
+    .favorite-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--rounded-full);
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .favorite-icon i {
+      color: white;
+      font-size: 1.25rem;
+    }
+
+    .favorite-content h3 {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 0.25rem;
+    }
+
+    .favorite-content p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--light);
+      margin: 0;
+    }
+
+    /* Languages Section */
+    #languages {
+      background: linear-gradient(to top right, rgba(15, 23, 42, 0.8), rgba(2, 6, 23, 0.7));
+    }
+
+    .languages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .language-item {
+      background: rgba(2, 6, 23, 0.5);
+      padding: 1rem;
+      border-radius: var(--rounded-md);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .language-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--gradient-primary);
+    }
+
+    .language-item:hover {
+      background: rgba(99, 102, 241, 0.1);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-primary);
+    }
+
+    .language-icon {
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--rounded);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .language-icon.html {
+      background: rgba(255, 111, 0, 0.1);
+      color: #ff6f00;
+    }
+
+    .language-icon.css {
+      background: rgba(33, 150, 243, 0.1);
+      color: #2196f3;
+    }
+
+    .language-icon.python {
+      background: rgba(55, 118, 171, 0.1);
+      color: #3776ab;
+    }
+
+    .language-icon.js {
+      background: rgba(247, 223, 30, 0.1);
+      color: #f7df1e;
+    }
+
+    .language-icon.lua {
+      background: rgba(153, 51, 255, 0.1);
+      color: #9933ff;
+    }
+
+    .language-icon.java {
+      background: rgba(248, 152, 32, 0.1);
+      color: #f89820;
+    }
+
+    .language-name {
+      font-weight: 500;
+    }
+
+    .learning-badge {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: var(--gradient-accent);
+      color: white;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--rounded-full);
+      font-weight: 600;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Particles */
+    .particle {
+      position: fixed;
+      pointer-events: none;
+      background: var(--primary-light);
+      border-radius: 50%;
+      opacity: 0.6;
+      z-index: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+      
+      .section {
+        padding: 1.5rem;
+      }
+      
+      nav a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .favorites-grid,
+      .languages-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 2rem 0 3rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="particles-container"></div>
+  
   <header>
-    <div class="typing" id="typing"></div>
-    <p class="tagline">Programmer ✧ Dog Lover ✧ Swimmer ✧ Dreamer</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#favorites">Favorites</a>
-      <a href="#languages">Languages</a>
-    </nav>
+    <div class="container header-content">
+      <div class="typing" id="typing"></div>
+      <p class="tagline">
+        <span><i class="fas fa-code"></i> Programmer</span>
+        <span><i class="fas fa-dog"></i> Dog Lover</span>
+        <span><i class="fas fa-swimmer"></i> Swimmer</span>
+        <span><i class="fas fa-cloud"></i> Dreamer</span>
+      </p>
+      <nav>
+        <a href="#about"><i class="fas fa-user"></i> About</a>
+        <a href="#favorites"><i class="fas fa-heart"></i> Favorites</a>
+        <a href="#languages"><i class="fas fa-code"></i> Languages</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="section" id="about">
-    <h2>About</h2>
-    <p>Hi! I'm Aanya, a student in the USA. I am an avid programmer, and this is just one of my fun personal projects! Apart from coding, I love spending time in the pool doing competitive swimming - although sometimes that can get tiring. I love animals, and have one pet dog who has been with me for 2 years now! Also, if you couldn't tell from this website already, I love New York City! I also love futururistic vibes, which is why I styled this website the way I did! The background of this website uses a cartoon NYC skyline that gives the vibe of city lights and energy mixed with my personality.</p>
-  </section>
+  <main class="container">
+    <section class="section floating" id="about">
+      <h2>About Me</h2>
+      <p>Hi! I'm Aanya, a passionate student based in the USA with a love for technology and creativity. I thrive at the intersection of logic and design, which makes programming my perfect playground.</p>
+      <p>When I'm not coding, you'll find me slicing through the water in competitive swimming (though those early morning practices can be brutal!). My loyal companion through it all is my wonderful dog, who's been by my side for 2 amazing years.</p>
+      <p>I'm fascinated by the energy and architecture of New York City, and I love blending that urban aesthetic with futuristic elements. This website reflects that vision - a digital space that combines the vibrancy of city lights with my personality and interests.</p>
+    </section>
 
-  <section class="section" id="favorites">
-    <h2>Favorites</h2>
-    <p>♡ Color: Pink<br>
-       ♡ Flower: Tulips<br>
-       ♡ Animal: Dogs<br>
-       ♡ Singer: Olivia Rodrigo<br>
-       ♡ Hobby: Coding & swimming<br>
-       ♡ Ice Cream Flavor: Chocolate<br>
-       ♡ Subject: Computer Science and Biology<br>
-       ♡ Code Editor: VS</p>
-  </section>
+    <section class="section floating" id="favorites">
+      <h2>My Favorites</h2>
+      <div class="favorites-grid">
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Color</h3>
+            <p>Pink</p>
+          </div>
+        </div>
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-spa"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Flower</h3>
+            <p>Tulips</p>
+          </div>
+        </div>
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-dog"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Animal</h3>
+            <p>Dogs</p>
+          </div>
+        </div>
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Artist</h3>
+            <p>Olivia Rodrigo</p>
+          </div>
+        </div>
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Hobby</h3>
+            <p>Coding</p>
+          </div>
+        </div>
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-swimmer"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Sport</h3>
+            <p>Swimming</p>
+          </div>
+        </div>
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-ice-cream"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Ice Cream</h3>
+            <p>Chocolate</p>
+          </div>
+        </div>
+        <div class="favorite-item">
+          <div class="favorite-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="favorite-content">
+            <h3>Subjects</h3>
+            <p>CS & Biology</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="languages">
-    <h2>Programming Languages</h2>
-    <p>Here are all the languages I’ve learned (and am learning):</p>
-    <ul style="list-style: none; padding-left: 0; line-height: 2; font-size: 1.2rem;">
-      <li><i class="fab fa-html5 language-icon" style="color:#ff6f00;"></i> HTML</li>
-      <li><i class="fab fa-css3-alt language-icon" style="color:#2196f3;"></i> CSS</li>
-      <li><i class="fab fa-python language-icon" style="color:#3776ab;"></i> Python</li>
-      <li><i class="fab fa-js-square language-icon" style="color:#f7df1e;"></i> JavaScript</li>
-      <li><i class="fas fa-gamepad language-icon" style="color:#9933ff;"></i> Lua</li>
-      <li><i class="fab fa-java language-icon" style="color:#f89820;"></i> Learning Java</li>
-    </ul>
-  </section>
+    <section class="section floating" id="languages">
+      <h2>My Tech Stack</h2>
+      <p>Here are all the languages I've mastered and those I'm currently exploring:</p>
+      <div class="languages-grid">
+        <div class="language-item">
+          <div class="language-icon html">
+            <i class="fab fa-html5"></i>
+          </div>
+          <span class="language-name">HTML5</span>
+        </div>
+        <div class="language-item">
+          <div class="language-icon css">
+            <i class="fab fa-css3-alt"></i>
+          </div>
+          <span class="language-name">CSS3</span>
+        </div>
+        <div class="language-item">
+          <div class="language-icon python">
+            <i class="fab fa-python"></i>
+          </div>
+          <span class="language-name">Python</span>
+        </div>
+        <div class="language-item">
+          <div class="language-icon js">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <span class="language-name">JavaScript</span>
+        </div>
+        <div class="language-item">
+          <div class="language-icon lua">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <span class="language-name">Lua</span>
+        </div>
+        <div class="language-item">
+          <div class="language-icon java">
+            <i class="fab fa-java"></i>
+          </div>
+          <span class="language-name">Java</span>
+          <span class="learning-badge">Learning</span>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
-    const text = "Hi, I'm Aanya";
+    // Typing animation
+    const text = "Hello, I'm Aanya";
     const typingElement = document.getElementById("typing");
     let index = 0;
 
@@ -169,66 +618,111 @@
         typingElement.textContent += text.charAt(index);
         index++;
         setTimeout(type, 150);
-      } else {
-        typingElement.style.borderRight = "3px solid transparent";
-        setInterval(() => {
-          typingElement.style.borderRight =
-            typingElement.style.borderRight === "3px solid transparent"
-              ? "3px solid #00bfff"
-              : "3px solid transparent";
-        }, 600);
       }
     }
 
     type();
-  </script>
 
-  <script>
-    const sparkles = [];
-    const colors = ["#00bfff", "#00ffff", "#ff69b4", "#e0b0ff", "#fffacd"];
-
-    document.addEventListener("mousemove", (e) => {
-      const sparkle = document.createElement("div");
-      sparkle.style.position = "absolute";
-      sparkle.style.width = "6px";
-      sparkle.style.height = "6px";
-      sparkle.style.borderRadius = "50%";
-      sparkle.style.pointerEvents = "none";
-      sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
-      sparkle.style.left = `${e.pageX}px`;
-      sparkle.style.top = `${e.pageY}px`;
-      sparkle.style.opacity = 1;
-      sparkle.style.transition = "transform 0.6s ease, opacity 0.6s ease";
-      document.body.appendChild(sparkle);
-      sparkles.push(sparkle);
-
-      requestAnimationFrame(() => {
-        sparkle.style.transform = `translateY(-10px) scale(1.4)`;
-        sparkle.style.opacity = 0;
-      });
-
-      setTimeout(() => {
-        sparkle.remove();
-      }, 600);
-    });
-  </script>
-
-  <script>
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.textContent = "❤";
-      heart.style.left = Math.random() * window.innerWidth + "px";
-      heart.style.fontSize = (Math.random() * 10 + 10) + "px";
-      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 7000);
+    // Floating particles
+    function createParticles() {
+      const particlesContainer = document.querySelector('.particles-container');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random properties
+        const size = Math.random() * 5 + 2;
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 10 + 10;
+        const opacity = Math.random() * 0.5 + 0.1;
+        
+        // Apply properties
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.opacity = opacity;
+        
+        // Random color
+        const colors = ['#6366f1', '#ec4899', '#f59e0b', '#818cf8', '#a5b4fc'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        particlesContainer.appendChild(particle);
+        
+        // Animate
+        animateParticle(particle);
+      }
     }
 
-    setInterval(createHeart, 300);
+    function animateParticle(particle) {
+      const startX = parseFloat(particle.style.left);
+      const startY = parseFloat(particle.style.top);
+      const duration = parseFloat(particle.style.animationDuration);
+      
+      const animate = () => {
+        const time = (Date.now() % (duration * 1000)) / (duration * 1000);
+        const newX = startX + Math.sin(time * Math.PI * 2) * 100;
+        const newY = startY + Math.cos(time * Math.PI * 2) * 50;
+        
+        particle.style.transform = `translate(${newX - startX}px, ${newY - startY}px)`;
+        requestAnimationFrame(animate);
+      };
+      
+      animate();
+    }
+
+    // Mouse trail effect
+    document.addEventListener('mousemove', (e) => {
+      const trail = document.createElement('div');
+      trail.classList.add('particle');
+      trail.style.width = '8px';
+      trail.style.height = '8px';
+      trail.style.left = `${e.clientX - 4}px`;
+      trail.style.top = `${e.clientY - 4}px`;
+      trail.style.background = `hsl(${Math.random() * 60 + 200}, 80%, 60%)`;
+      trail.style.opacity = '0.7';
+      
+      document.body.appendChild(trail);
+      
+      // Fade out and remove
+      setTimeout(() => {
+        trail.style.transition = 'all 0.5s ease';
+        trail.style.opacity = '0';
+        trail.style.transform = 'scale(1.5)';
+        
+        setTimeout(() => {
+          trail.remove();
+        }, 500);
+      }, 100);
+    });
+
+    // Initialize
+    window.addEventListener('load', () => {
+      createParticles();
+      
+      // Add scroll animation
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+      });
+      
+      setTimeout(() => {
+        sections.forEach((section, index) => {
+          setTimeout(() => {
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+          }, index * 200);
+        });
+      }, 500);
+    });
   </script>
 </body>
 </html>
