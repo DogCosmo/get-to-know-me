@@ -116,6 +116,24 @@
       filter: drop-shadow(0 0 6px #00ffff);
       cursor: pointer;
     }
+
+    /* Projects Section Styling */
+    #projects h3 {
+      color: #ff69b4;
+      text-shadow: 0 0 8px #ff69b4, 0 0 15px #00ffff;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .game-container {
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      box-shadow: 0 0 20px #00ffff88, 0 0 40px #ff69b488;
+      max-width: 520px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -126,6 +144,7 @@
       <a href="#about">About</a>
       <a href="#favorites">Favorites</a>
       <a href="#languages">Languages</a>
+      <a href="#projects">Projects</a>
     </nav>
   </header>
 
@@ -157,6 +176,41 @@
       <li><i class="fas fa-gamepad language-icon" style="color:#9933ff;"></i> Lua</li>
       <li><i class="fab fa-java language-icon" style="color:#f89820;"></i> Learning Java</li>
     </ul>
+  </section>
+
+  <section class="section" id="projects">
+    <h2>🎮 My Projects</h2>
+    <p>Here are some of the Scratch games I’ve created — feel free to try them out!</p>
+    
+    <div class="game-container">
+      <h3>The Ice Cream Truck Game</h3>
+      <iframe src="https://scratch.mit.edu/projects/1007624160/embed"
+              allowtransparency="true"
+              width="485" height="402"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen></iframe>
+    </div>
+
+    <div class="game-container">
+      <h3>The Pizza Restaurant Game</h3>
+      <iframe src="https://scratch.mit.edu/projects/1064464027/embed"
+              allowtransparency="true"
+              width="485" height="402"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen></iframe>
+    </div>
+
+    <div class="game-container">
+      <h3>The Harry Potter Sorting Quiz Game</h3>
+      <iframe src="https://scratch.mit.edu/projects/1063869331/embed"
+              allowtransparency="true"
+              width="485" height="402"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen></iframe>
+    </div>
   </section>
 
   <script>
